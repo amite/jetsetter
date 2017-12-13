@@ -35,7 +35,7 @@ class Application extends Component {
 
   markAllAsUnpacked = async () => {
     await api.markAllAsUnpacked()
-    this.setState(markAllAsUnpacked())
+    this.setState(markAllItemsAsUnpacked())
   }
 
   removeItem = async itemToRemove => {

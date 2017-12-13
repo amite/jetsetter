@@ -14,7 +14,7 @@ class NewItem extends Component {
     const { onSubmit } = this.props
     const { value } = this.state
 
-    onSubmit({ value, id: uniqueId(), packed: false })
+    onSubmit({ value: value.trim(), id: uniqueId(), packed: false })
     event.preventDefault()
     this.setState({ value: '' })
   }

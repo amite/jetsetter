@@ -24,15 +24,15 @@ const defaultState = [
 const getAll = async () => {
   const items =
     (await localforage.getItem('items')) ||
-    (await localforage.setItem('items', JSON.stringify(defaultState)))
+    (await localforage.setItem('items', defaultState))
   return items || []
 }
 
 export default {
   async add(item) {
-    const items = JSON.parse(await getAll())
+    const items = await getAll()
     const newItem = { ...item, id: uniqueId() }
-    localforage.setItem('items', JSON.stringify([newItem, ...items]))
+    localforage.setItem('items', [newItem, ...items])
     return newItem
   },
 
@@ -41,31 +41,27 @@ export default {
   },
 
   async delete({ id }) {
-    const items = JSON.parse(await getAll())
-    localforage.setItem(
-      'items',
-      JSON.stringify(items.filter(item => item.id !== id))
-    )
+    const items = await getAll()
+    localforage.setItem('items', items.filter(item => item.id !== id))
   },
 
   async update(updatedItem) {
-    const items = JSON.parse(await getAll())
+    const items = await getAll()
     localforage.setItem(
       'items',
-      JSON.stringify(
-        items.map(item => {
-          if (item.id === updatedItem.id) return { ...item, ...updatedItem }
-          return item
-        })
-      )
+
+      items.map(item => {
+        if (item.id === updatedItem.id) return { ...item, ...updatedItem }
+        return item
+      })
     )
   },
 
   async markAllAsUnpacked() {
-    const items = JSON.parse(await getAll())
+    const items = await getAll()
     localforage.setItem(
       'items',
-      JSON.stringify(items.map(item => ({ ...item, packed: false })))
+      items.map(item => ({ ...item, packed: false }))
     )
   },
 

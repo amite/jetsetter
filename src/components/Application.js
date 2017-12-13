@@ -23,7 +23,7 @@ class Application extends Component {
     this.setState({ loading: true })
     const items = await api.getAll()
     this.setState({
-      items: (items && items.length && JSON.parse(items)) || [],
+      items: items || [],
       loading: false
     })
   }

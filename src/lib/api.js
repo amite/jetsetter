@@ -2,7 +2,7 @@ import localforage from 'localforage'
 import uniqueId from 'lodash/uniqueId'
 
 localforage.config({
-  driver: localforage.LOCALSTORAGE, // Force WebSQL; same as using setDriver()
+  driver: localforage.LOCALSTORAGE,
   name: 'Packer',
   version: 1.0
 })

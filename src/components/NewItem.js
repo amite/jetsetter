@@ -6,8 +6,8 @@ import './NewItem.css'
 class NewItem extends Component {
   state = { value: '' }
 
-  handleChange = event => {
-    this.setState({ value: event.target.value })
+  handleChange = ({ target: { value } }) => {
+    this.setState({ value })
   }
 
   handleSubmit = event => {

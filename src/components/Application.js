@@ -5,7 +5,7 @@ import Items from './Items'
 
 import api from '../lib/api'
 import {
-  markAllAsUnpacked,
+  markAllItemsAsUnpacked,
   addItem,
   removeItem,
   toggleItem

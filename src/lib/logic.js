@@ -1,4 +1,4 @@
-const markAllAsUnpacked = () => ({ items }) => {
+const markAllItemsAsUnpacked = () => ({ items }) => {
   return {
     items: items.map(item => {
       return { ...item, packed: false }
@@ -29,4 +29,4 @@ const toggleItem = itemToToggle => ({ items }) => {
   }
 }
 
-export { markAllAsUnpacked, addItem, removeItem, toggleItem }
+export { markAllItemsAsUnpacked, addItem, removeItem, toggleItem }

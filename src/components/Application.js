@@ -5,7 +5,7 @@ import Items from './Items'
 
 import api from '../lib/api'
 import {
-  markAllAsUnpacked,
+  markAllItemsAsUnpacked,
   addItem,
   removeItem,
   toggleItem
@@ -35,7 +35,7 @@ class Application extends Component {
 
   markAllAsUnpacked = async () => {
     await api.markAllAsUnpacked()
-    this.setState(markAllAsUnpacked())
+    this.setState(markAllItemsAsUnpacked())
   }
 
   removeItem = async itemToRemove => {

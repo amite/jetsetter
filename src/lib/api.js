@@ -2,12 +2,9 @@ import localforage from 'localforage'
 import uniqueId from 'lodash/uniqueId'
 
 localforage.config({
-  driver: localforage.WEBSQL, // Force WebSQL; same as using setDriver()
+  driver: localforage.LOCALSTORAGE, // Force WebSQL; same as using setDriver()
   name: 'Packer',
-  version: 1.0,
-  size: 4980736, // Size of database, in bytes. WebSQL-only for now.
-  storeName: 'items', // Should be alphanumeric, with underscores.
-  description: 'pack your stuff'
+  version: 1.0
 })
 
 const defaultState = [

@@ -32,7 +32,6 @@ class Items extends Component {
             <Item
               key={item.id}
               onToggle={onToggle}
-              onCheckOff={() => {}}
               onRemove={onRemove}
               item={item}
             />

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import CountDown from './CountDown'
 import NewItem from './NewItem'
-import ItemsContainer from './ItemsContainer'
+import Items from './Items'
 import withItems from '../hocs/withItems'
 
 import './Application.css'
@@ -26,13 +26,13 @@ class Application extends Component {
       <div className="Application">
         <NewItem onSubmit={addItem} />
         <CountDown />
-        <ItemsContainer
+        <Items
           title="Unpacked Items"
           onToggle={toggleItem}
           onRemove={removeItem}
           items={unpackedItems}
         />
-        <ItemsContainer
+        <Items
           title="Packed Items"
           onToggle={toggleItem}
           onRemove={removeItem}

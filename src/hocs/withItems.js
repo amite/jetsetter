@@ -8,7 +8,9 @@ import {
 } from '../lib/logic'
 
 const withItems = WrappedComponent =>
-  class WithItems extends Component {
+  class extends Component {
+    static displayName = `WithSearch(${WrappedComponent.displayName})`
+
     state = {
       items: [],
       loading: false

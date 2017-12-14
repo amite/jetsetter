@@ -6,7 +6,7 @@ import withItems from '../hocs/withItems'
 
 import './Application.css'
 
-class Application extends Component {
+class JetSetter extends Component {
   render() {
     const {
       items,
@@ -46,4 +46,6 @@ class Application extends Component {
   }
 }
 
-export default withItems(Application)
+JetSetter.displayName = 'JetSetter'
+
+export default withItems(JetSetter)

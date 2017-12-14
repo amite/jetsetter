@@ -6,15 +6,15 @@ import './NewItem.css'
 class NewItem extends Component {
   state = { value: '' }
 
-  handleChange = event => {
-    this.setState({ value: event.target.value })
+  handleChange = ({ target: { value } }) => {
+    this.setState({ value })
   }
 
   handleSubmit = event => {
     const { onSubmit } = this.props
-    const { value } = this.state
+    const value = this.state.value.trim()
 
-    onSubmit({ value: value.trim(), id: uniqueId(), packed: false })
+    onSubmit({ value, id: uniqueId(), packed: false })
     event.preventDefault()
     this.setState({ value: '' })
   }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import CountDown from './CountDown'
 import NewItem from './NewItem'
-import Items from './Items'
+import ItemsContainer from './ItemsContainer'
 
 import api from '../lib/api'
 import {
@@ -66,13 +66,13 @@ class Application extends Component {
       <div className="Application">
         <NewItem onSubmit={this.addItem} />
         <CountDown />
-        <Items
+        <ItemsContainer
           title="Unpacked Items"
           onToggle={this.toggleItem}
           onRemove={this.removeItem}
           items={unpackedItems}
         />
-        <Items
+        <ItemsContainer
           title="Packed Items"
           onToggle={this.toggleItem}
           onRemove={this.removeItem}

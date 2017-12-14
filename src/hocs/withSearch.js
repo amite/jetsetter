@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 
 const withSearch = WrappedComponent =>
-  class WithSearch extends Component {
+  class extends Component {
+    static displayName = `WithSearch(${WrappedComponent.displayName})`
     state = {
       searchTerm: ''
     }

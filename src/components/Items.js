@@ -4,6 +4,8 @@ import Filter from './Filter'
 import withSearch from '../hocs/withSearch'
 
 class Items extends Component {
+  static displayName = 'Items'
+
   render() {
     const {
       title,

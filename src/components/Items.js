@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Item from './Item'
 import Filter from './Filter'
+import withSearch from '../hocs/withSearch'
 
 class Items extends Component {
   render() {
@@ -35,4 +36,4 @@ class Items extends Component {
   }
 }
 
-export default Items
+export default withSearch(Items)

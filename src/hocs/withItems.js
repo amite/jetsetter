@@ -9,7 +9,7 @@ import {
 
 const withItems = WrappedComponent =>
   class extends Component {
-    static displayName = `WithSearch(${WrappedComponent.displayName})`
+    static displayName = `WithItems(${WrappedComponent.displayName})`
 
     state = {
       items: [],

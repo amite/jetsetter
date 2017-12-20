@@ -50,20 +50,17 @@ export default {
     const items = await getAll()
     localforage.setItem(
       'items',
-
       items.map(item => {
         if (item.id === toggledItem.id) return { ...item, ...toggledItem }
         return item
       })
     )
-    return toggledItem
   },
 
   async markAllAsUnpacked() {
     const items = await getAll()
     const unpackedItems = items.map(item => ({ ...item, packed: false }))
     localforage.setItem('items', unpackedItems)
-    return unpackedItems
   },
 
   async deleteUnpackedItems() {

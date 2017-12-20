@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
+import { func } from 'prop-types'
 
 class Search extends Component {
+  static propTypes = {
+    render: func.isRequired
+  }
+
   state = {
     searchTerm: ''
   }

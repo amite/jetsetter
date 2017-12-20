@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
 import uniqueId from 'lodash/uniqueId'
+import { func } from 'prop-types'
 
 import './NewItem.css'
 
 class NewItem extends Component {
   state = { value: '' }
+
+  static propTypes = {
+    onSubmit: func.isRequired
+  }
 
   handleChange = ({ target: { value } }) => {
     this.setState({ value })

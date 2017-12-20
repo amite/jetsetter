@@ -1,7 +1,17 @@
 import React, { Component } from 'react'
+import { func, bool, shape, string } from 'prop-types'
 import './Item.css'
 
 class Item extends Component {
+  static propTypes = {
+    item: shape({
+      id: string,
+      packed: bool,
+      value: string
+    }),
+    onToggle: func.isRequired,
+    onRemove: func.isRequired
+  }
   render() {
     const { item, onToggle, onRemove } = this.props
     return (

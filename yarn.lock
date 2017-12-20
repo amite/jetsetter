@@ -2551,6 +2551,10 @@ eslint-plugin-import@2.7.0:
     minimatch "^3.0.3"
     read-pkg-up "^2.0.0"
 
+eslint-plugin-jest@^21.5.0:
+  version "21.5.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-21.5.0.tgz#c7a3bd2ee9d1c832b4e31dec89f6ad93e08d4853"
+
 eslint-plugin-jsx-a11y@5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-5.1.1.tgz#5c96bb5186ca14e94db1095ff59b3e2bd94069b1"
@@ -5842,7 +5846,7 @@ react-error-overlay@^1.0.10:
     settle-promise "1.0.0"
     source-map "0.5.6"
 
-react-redux@5.0.6:
+react-redux@^5.0.6:
   version "5.0.6"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.6.tgz#23ed3a4f986359d68b5212eaaa681e60d6574946"
   dependencies:
@@ -5973,7 +5977,7 @@ redux-thunk@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.2.0.tgz#e615a16e16b47a19a515766133d1e3e99b7852e5"
 
-redux@3.7.2:
+redux@^3.7.2:
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/redux/-/redux-3.7.2.tgz#06b73123215901d25d065be342eb026bc1c8537b"
   dependencies:

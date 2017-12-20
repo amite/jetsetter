@@ -45,16 +45,18 @@ export default {
     localforage.setItem('items', items.filter(item => item.id !== id))
   },
 
-  async update(updatedItem) {
+  async update(itemToUpdate) {
+    const toggledItem = { ...itemToUpdate, packed: !itemToUpdate.packed }
     const items = await getAll()
     localforage.setItem(
       'items',
 
       items.map(item => {
-        if (item.id === updatedItem.id) return { ...item, ...updatedItem }
+        if (item.id === toggledItem.id) return { ...item, ...toggledItem }
         return item
       })
     )
+    return toggledItem
   },
 
   async markAllAsUnpacked() {

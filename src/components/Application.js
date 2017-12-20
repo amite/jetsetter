@@ -6,7 +6,13 @@ import CountDown from './CountDown'
 import NewItem from './NewItem'
 import Items from './Items'
 
-import { toggleItem, addItem, removeItem, markAllAsUnpacked } from '../actions'
+import {
+  fetchItems,
+  toggleItem,
+  addItem,
+  removeItem,
+  markAllAsUnpacked
+} from '../actions'
 
 import './Application.css'
 
@@ -14,10 +20,15 @@ class JetSetter extends Component {
   static propTypes = {
     items: array.isRequired,
     loading: bool,
+    fetchItems: func.isRequired,
     removeItem: func.isRequired,
     addItem: func.isRequired,
     toggleItem: func.isRequired,
     markAllAsUnpacked: func.isRequired
+  }
+
+  componentDidMount() {
+    this.props.fetchItems()
   }
 
   render() {
@@ -69,6 +80,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    fetchItems() {
+      dispatch(fetchItems())
+    },
     addItem(item) {
       dispatch(addItem(item))
     },

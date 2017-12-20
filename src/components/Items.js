@@ -2,9 +2,15 @@ import React, { Component } from 'react'
 import Item from './Item'
 import Filter from './Filter'
 import Search from './Search'
+import { array, string } from 'prop-types'
 
 class Items extends Component {
   static displayName = 'Items'
+
+  static propTypes = {
+    title: string.isRequired,
+    items: array.isRequired
+  }
 
   renderItems = ({ items, searchTerm, onToggle, onRemove }) =>
     items

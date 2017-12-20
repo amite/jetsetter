@@ -3,10 +3,20 @@ import CountDown from './CountDown'
 import NewItem from './NewItem'
 import Items from './Items'
 import withItems from '../hocs/withItems'
+import { func, array, bool } from 'prop-types'
 
 import './Application.css'
 
 class JetSetter extends Component {
+  static propTypes = {
+    items: array.isRequired,
+    loading: bool,
+    removeItem: func.isRequired,
+    addItem: func.isRequired,
+    toggleItem: func.isRequired,
+    markAllAsUnpacked: func.isRequired
+  }
+
   render() {
     const {
       items,

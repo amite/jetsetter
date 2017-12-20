@@ -1,5 +1,11 @@
 import { combineReducers } from 'redux'
 import uniqueId from 'lodash/uniqueId'
+import {
+  TOGGLE_ITEM,
+  REMOVE_ITEM,
+  ADD_ITEM,
+  MARK_ALL_AS_UNPACKED
+} from '../actions/constants'
 
 const defaultState = [
   { value: 'Pants', id: uniqueId(), packed: false },
@@ -16,7 +22,25 @@ const defaultState = [
 ]
 
 const itemsReducer = (state = defaultState, action) => {
-  return state
+  switch (action.type) {
+    case ADD_ITEM:
+      return [action.item, ...state]
+
+    case REMOVE_ITEM:
+      return state.filter(item => item.id !== action.item.id)
+
+    case TOGGLE_ITEM:
+      return state.map(item => {
+        if (item.id !== action.item.id) return item
+        return { ...action.item, packed: !action.item.packed }
+      })
+
+    case MARK_ALL_AS_UNPACKED:
+      return state.map(item => ({ ...item, packed: false }))
+
+    default:
+      return state
+  }
 }
 
 export default combineReducers({

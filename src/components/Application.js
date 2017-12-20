@@ -11,7 +11,7 @@ import {
   toggleItemAsync,
   addItemAsync,
   removeItemAsync,
-  markAllAsUnpacked
+  markAllAsUnpackedAsync
 } from '../actions'
 
 import './Application.css'
@@ -24,7 +24,7 @@ class JetSetter extends Component {
     removeItemAsync: func.isRequired,
     addItemAsync: func.isRequired,
     toggleItemAsync: func.isRequired,
-    markAllAsUnpacked: func.isRequired
+    markAllAsUnpackedAsync: func.isRequired
   }
 
   componentDidMount() {
@@ -38,7 +38,7 @@ class JetSetter extends Component {
       toggleItemAsync,
       removeItemAsync,
       addItemAsync,
-      markAllAsUnpacked
+      markAllAsUnpackedAsync
     } = this.props
 
     const unpackedItems = items.filter(item => item.packed === false)
@@ -62,7 +62,7 @@ class JetSetter extends Component {
           onRemove={removeItemAsync}
           items={packedItems}
         />
-        <button className="button full-width" onClick={markAllAsUnpacked}>
+        <button className="button full-width" onClick={markAllAsUnpackedAsync}>
           Mark All As Unpacked
         </button>
       </div>
@@ -92,8 +92,8 @@ const mapDispatchToProps = dispatch => {
     toggleItemAsync(item) {
       dispatch(toggleItemAsync(item))
     },
-    markAllAsUnpacked() {
-      dispatch(markAllAsUnpacked())
+    markAllAsUnpackedAsync() {
+      dispatch(markAllAsUnpackedAsync())
     }
   }
 }

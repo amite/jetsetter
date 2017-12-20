@@ -61,10 +61,9 @@ export default {
 
   async markAllAsUnpacked() {
     const items = await getAll()
-    localforage.setItem(
-      'items',
-      items.map(item => ({ ...item, packed: false }))
-    )
+    const unpackedItems = items.map(item => ({ ...item, packed: false }))
+    localforage.setItem('items', unpackedItems)
+    return unpackedItems
   },
 
   async deleteUnpackedItems() {

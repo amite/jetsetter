@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { func, bool, shape, number, string } from 'prop-types'
+import { func, bool, shape, string } from 'prop-types'
 import './Item.css'
 
 class Item extends Component {
   static propTypes = {
     item: shape({
-      id: number,
+      id: string,
       packed: bool,
       value: string
     }),

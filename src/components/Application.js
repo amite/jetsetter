@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { func, array, bool } from 'prop-types'
+import { connect } from 'react-redux'
+
 import CountDown from './CountDown'
 import NewItem from './NewItem'
 import Items from './Items'
@@ -80,3 +83,5 @@ const mapDispatchToProps = dispatch => {
     }
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(JetSetter)

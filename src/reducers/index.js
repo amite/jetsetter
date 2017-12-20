@@ -1,3 +1,4 @@
+import { combineReducers } from 'redux'
 import uniqueId from 'lodash/uniqueId'
 
 const defaultState = [
@@ -13,3 +14,11 @@ const defaultState = [
   { value: 'Passport', id: uniqueId(), packed: true },
   { value: 'Sandwich', id: uniqueId(), packed: true }
 ]
+
+const itemsReducer = (state = defaultState, action) => {
+  return state
+}
+
+export default combineReducers({
+  items: itemsReducer
+})

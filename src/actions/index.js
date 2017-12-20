@@ -59,8 +59,8 @@ const toggleItem = item => {
 
 const toggleItemAsync = itemToToggle => {
   return async dispatch => {
-    const toggledItem = await api.update(itemToToggle)
-    dispatch(toggleItem(toggledItem))
+    await api.update(itemToToggle)
+    dispatch(toggleItem(itemToToggle))
   }
 }
 

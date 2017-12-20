@@ -21,7 +21,7 @@ const itemsReducer = (items = [], action) => {
     case TOGGLE_ITEM:
       return items.map(item => {
         if (item.id !== action.item.id) return item
-        return { ...action.item }
+        return { ...action.item, packed: !action.item.packed }
       })
 
     case MARK_ALL_AS_UNPACKED:

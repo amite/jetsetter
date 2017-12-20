@@ -7,8 +7,14 @@ import JetSetter from './components/Application'
 
 import './index.css'
 
-ReactDOM.render(<JetSetter />, document.getElementById('root'))
 let store = createStore(
   rootReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
+
+ReactDOM.render(
+  <Provider store={store}>
+    <JetSetter />
+  </Provider>,
+  document.getElementById('root')
 )

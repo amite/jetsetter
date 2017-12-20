@@ -1,14 +1,17 @@
 import { combineReducers } from 'redux'
 import {
+  LOAD_ITEMS,
   TOGGLE_ITEM,
   REMOVE_ITEM,
   ADD_ITEM,
   MARK_ALL_AS_UNPACKED
 } from '../actions/constants'
 
-
-const itemsReducer = (state = defaultState, action) => {
+const itemsReducer = (state = [], action) => {
   switch (action.type) {
+    case LOAD_ITEMS:
+      return [...action.items, ...state]
+
     case ADD_ITEM:
       return [action.item, ...state]
 

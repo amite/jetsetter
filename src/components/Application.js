@@ -3,6 +3,8 @@ import CountDown from './CountDown'
 import NewItem from './NewItem'
 import Items from './Items'
 
+import { toggleItem, addItem, removeItem, markAllAsUnpacked } from '../actions'
+
 import './Application.css'
 
 class JetSetter extends Component {
@@ -56,3 +58,25 @@ class JetSetter extends Component {
 
 JetSetter.displayName = 'JetSetter'
 
+const mapStateToProps = state => {
+  return {
+    items: state.items
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addItem(item) {
+      dispatch(addItem(item))
+    },
+    removeItem(item) {
+      dispatch(removeItem(item))
+    },
+    markAllAsUnpacked() {
+      dispatch(markAllAsUnpacked())
+    },
+    toggleItem(item) {
+      dispatch(toggleItem(item))
+    }
+  }
+}

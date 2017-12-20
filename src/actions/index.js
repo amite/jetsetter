@@ -57,6 +57,14 @@ const toggleItem = item => {
   }
 }
 
+const toggleItemAsync = itemToToggle => {
+  return async dispatch => {
+    const toggledItem = await api.update(itemToToggle)
+    console.log(toggledItem)
+    dispatch(toggleItem(toggledItem))
+  }
+}
+
 const markAllAsUnpacked = item => {
   return {
     type: MARK_ALL_AS_UNPACKED,
@@ -67,7 +75,7 @@ const markAllAsUnpacked = item => {
 export {
   removeItemAsync,
   addItemAsync,
-  toggleItem,
+  toggleItemAsync,
   markAllAsUnpacked,
   fetchItems
 }

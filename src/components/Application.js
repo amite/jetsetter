@@ -8,7 +8,7 @@ import Items from './Items'
 
 import {
   fetchItems,
-  toggleItem,
+  toggleItemAsync,
   addItemAsync,
   removeItemAsync,
   markAllAsUnpacked
@@ -23,7 +23,7 @@ class JetSetter extends Component {
     fetchItems: func.isRequired,
     removeItemAsync: func.isRequired,
     addItemAsync: func.isRequired,
-    toggleItem: func.isRequired,
+    toggleItemAsync: func.isRequired,
     markAllAsUnpacked: func.isRequired
   }
 
@@ -35,7 +35,7 @@ class JetSetter extends Component {
     const {
       items,
       loading,
-      toggleItem,
+      toggleItemAsync,
       removeItemAsync,
       addItemAsync,
       markAllAsUnpacked
@@ -52,13 +52,13 @@ class JetSetter extends Component {
         <CountDown />
         <Items
           title="Unpacked Items"
-          onToggle={toggleItem}
+          onToggle={toggleItemAsync}
           onRemove={removeItemAsync}
           items={unpackedItems}
         />
         <Items
           title="Packed Items"
-          onToggle={toggleItem}
+          onToggle={toggleItemAsync}
           onRemove={removeItemAsync}
           items={packedItems}
         />
@@ -89,11 +89,11 @@ const mapDispatchToProps = dispatch => {
     removeItemAsync(item) {
       dispatch(removeItemAsync(item))
     },
+    toggleItemAsync(item) {
+      dispatch(toggleItemAsync(item))
+    },
     markAllAsUnpacked() {
       dispatch(markAllAsUnpacked())
-    },
-    toggleItem(item) {
-      dispatch(toggleItem(item))
     }
   }
 }

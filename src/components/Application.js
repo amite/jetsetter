@@ -9,8 +9,8 @@ import Items from './Items'
 import {
   fetchItems,
   toggleItem,
-  addItem,
-  removeItem,
+  addItemAsync,
+  removeItemAsync,
   markAllAsUnpacked
 } from '../actions'
 
@@ -21,8 +21,8 @@ class JetSetter extends Component {
     items: array.isRequired,
     loading: bool,
     fetchItems: func.isRequired,
-    removeItem: func.isRequired,
-    addItem: func.isRequired,
+    removeItemAsync: func.isRequired,
+    addItemAsync: func.isRequired,
     toggleItem: func.isRequired,
     markAllAsUnpacked: func.isRequired
   }
@@ -36,8 +36,8 @@ class JetSetter extends Component {
       items,
       loading,
       toggleItem,
-      removeItem,
-      addItem,
+      removeItemAsync,
+      addItemAsync,
       markAllAsUnpacked
     } = this.props
 
@@ -48,18 +48,18 @@ class JetSetter extends Component {
       <div>loading...</div>
     ) : (
       <div className="Application">
-        <NewItem onSubmit={addItem} />
+        <NewItem onSubmit={addItemAsync} />
         <CountDown />
         <Items
           title="Unpacked Items"
           onToggle={toggleItem}
-          onRemove={removeItem}
+          onRemove={removeItemAsync}
           items={unpackedItems}
         />
         <Items
           title="Packed Items"
           onToggle={toggleItem}
-          onRemove={removeItem}
+          onRemove={removeItemAsync}
           items={packedItems}
         />
         <button className="button full-width" onClick={markAllAsUnpacked}>
@@ -83,11 +83,11 @@ const mapDispatchToProps = dispatch => {
     fetchItems() {
       dispatch(fetchItems())
     },
-    addItem(item) {
-      dispatch(addItem(item))
+    addItemAsync(item) {
+      dispatch(addItemAsync(item))
     },
-    removeItem(item) {
-      dispatch(removeItem(item))
+    removeItemAsync(item) {
+      dispatch(removeItemAsync(item))
     },
     markAllAsUnpacked() {
       dispatch(markAllAsUnpacked())

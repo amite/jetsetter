@@ -29,10 +29,24 @@ const addItem = item => {
   }
 }
 
+const addItemAsync = item => {
+  return async dispatch => {
+    let newItem = await api.add(item)
+    dispatch(addItem(newItem))
+  }
+}
+
 const removeItem = item => {
   return {
     type: REMOVE_ITEM,
     item
+  }
+}
+
+const removeItemAsync = item => {
+  return async dispatch => {
+    await api.delete(item)
+    dispatch(removeItem(item))
   }
 }
 
@@ -50,4 +64,10 @@ const markAllAsUnpacked = item => {
   }
 }
 
-export { addItem, removeItem, toggleItem, markAllAsUnpacked, fetchItems }
+export {
+  removeItemAsync,
+  addItemAsync,
+  toggleItem,
+  markAllAsUnpacked,
+  fetchItems
+}

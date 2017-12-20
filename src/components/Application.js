@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import CountDown from './CountDown'
 import NewItem from './NewItem'
 import Items from './Items'
-import withItems from '../hocs/withItems'
-import { func, array, bool } from 'prop-types'
 
 import './Application.css'
 
@@ -58,4 +56,3 @@ class JetSetter extends Component {
 
 JetSetter.displayName = 'JetSetter'
 
-export default withItems(JetSetter)

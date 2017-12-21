@@ -6,8 +6,6 @@ import {
   MARK_ALL_AS_UNPACKED
 } from './constants'
 
-import api from '../lib/api'
-
 const loadItems = items => {
   return {
     type: LOAD_ITEMS,
@@ -16,7 +14,7 @@ const loadItems = items => {
 }
 
 const fetchItems = () => {
-  return async dispatch => {
+  return async (dispatch, getState, api) => {
     let items = await api.getAll()
     dispatch(loadItems(items))
   }
@@ -30,7 +28,7 @@ const addItem = item => {
 }
 
 const addItemAsync = item => {
-  return async dispatch => {
+  return async (dispatch, getState, api) => {
     let newItem = await api.add(item)
     dispatch(addItem(newItem))
   }
@@ -44,7 +42,7 @@ const removeItem = item => {
 }
 
 const removeItemAsync = item => {
-  return async dispatch => {
+  return async (dispatch, getState, api) => {
     await api.delete(item)
     dispatch(removeItem(item))
   }
@@ -58,7 +56,7 @@ const toggleItem = item => {
 }
 
 const toggleItemAsync = itemToToggle => {
-  return async dispatch => {
+  return async (dispatch, getState, api) => {
     await api.update(itemToToggle)
     dispatch(toggleItem(itemToToggle))
   }
@@ -71,7 +69,7 @@ const markAllAsUnpacked = () => {
 }
 
 const markAllAsUnpackedAsync = () => {
-  return async dispatch => {
+  return async (dispatch, getState, api) => {
     await api.markAllAsUnpacked()
     dispatch(markAllAsUnpacked())
   }

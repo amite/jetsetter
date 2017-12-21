@@ -3,7 +3,10 @@ import {
   TOGGLE_ITEM,
   REMOVE_ITEM,
   ADD_ITEM,
-  MARK_ALL_AS_UNPACKED
+  MARK_ALL_AS_UNPACKED,
+  LOADING,
+  LOADING_SUCCESS,
+  LOADING_FAILED
 } from './constants'
 
 const loadItems = items => {
@@ -15,8 +18,14 @@ const loadItems = items => {
 
 const fetchItems = () => {
   return async (dispatch, getState, api) => {
-    let items = await api.getAll()
-    dispatch(loadItems(items))
+    try {
+      dispatch({ type: LOADING })
+      let items = await api.getAll()
+      dispatch(loadItems(items))
+      dispatch({ type: LOADING_SUCCESS })
+    } catch (error) {
+      dispatch({ type: LOADING_FAILED })
+    }
   }
 }
 

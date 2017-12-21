@@ -1,18 +1,12 @@
 import React, { Component } from 'react'
 import { func, array, bool } from 'prop-types'
 import { connect } from 'react-redux'
-
+import { bindActionCreators } from 'redux'
 import CountDown from './CountDown'
 import NewItem from './NewItem'
 import Items from './Items'
 
-import {
-  fetchItems,
-  toggleItemAsync,
-  addItemAsync,
-  removeItemAsync,
-  markAllAsUnpackedAsync
-} from '../actions'
+import * as ItemActions from '../actions'
 
 import './Application.css'
 
@@ -78,24 +72,6 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchItems() {
-      dispatch(fetchItems())
-    },
-    addItemAsync(item) {
-      dispatch(addItemAsync(item))
-    },
-    removeItemAsync(item) {
-      dispatch(removeItemAsync(item))
-    },
-    toggleItemAsync(item) {
-      dispatch(toggleItemAsync(item))
-    },
-    markAllAsUnpackedAsync() {
-      dispatch(markAllAsUnpackedAsync())
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(JetSetter)
+export default connect(mapStateToProps, dispatch =>
+  bindActionCreators(ItemActions, dispatch)
+)(JetSetter)

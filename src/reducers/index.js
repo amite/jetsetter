@@ -4,8 +4,23 @@ import {
   TOGGLE_ITEM,
   REMOVE_ITEM,
   ADD_ITEM,
-  MARK_ALL_AS_UNPACKED
+  MARK_ALL_AS_UNPACKED,
+  LOADING,
+  LOADING_SUCCESS,
+  LOADING_FAILED
 } from '../actions/constants'
+
+const loadingReducer = (loading = false, action) => {
+  switch (action.type) {
+    case LOADING:
+      return true
+    case LOADING_SUCCESS:
+    case LOADING_FAILED:
+      return false
+    default:
+      return loading
+  }
+}
 
 const itemsReducer = (items = [], action) => {
   switch (action.type) {
@@ -33,5 +48,6 @@ const itemsReducer = (items = [], action) => {
 }
 
 export default combineReducers({
-  items: itemsReducer
+  items: itemsReducer,
+  loading: loadingReducer
 })

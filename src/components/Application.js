@@ -13,7 +13,7 @@ import './Application.css'
 class JetSetter extends Component {
   static propTypes = {
     items: array.isRequired,
-    loading: bool,
+    loading: bool.isRequired,
     fetchItems: func.isRequired,
     removeItemAsync: func.isRequired,
     addItemAsync: func.isRequired,
@@ -68,7 +68,8 @@ JetSetter.displayName = 'JetSetter'
 
 const mapStateToProps = state => {
   return {
-    items: state.items
+    items: state.items,
+    loading: state.loading
   }
 }
 

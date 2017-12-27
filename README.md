@@ -1,3 +1,7 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+# workbox-webpack
 
-This project demonstrates advanced state management techniques
+This app is the starting point for the official tutorial on adding Workbox
+to webpack projects. See [Get Started With Workbox For Webpack][Tutorial]
+to learn how to add Workbox to this app so that the app works offline!
+
+[Tutorial]: https://developers.google.com/web/tools/workbox/get-started/webpack
